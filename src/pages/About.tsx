@@ -1,17 +1,17 @@
 const About = () => {
 	return (
-		<div className="relative flex flex-col items-center justify-center h-screen leading-none top-[-50px]">
+		<div className="relative flex flex-col items-center justify-center h-screen leading-none">
 			{/* Background Image */}
 			<img
 				src="/public/img/about.png"
 				alt="About"
-				className="absolute mx-auto object-cover leading-none grayscale"
+				className="absolute mx-auto object-cover leading-none grayscale md:lg:w-[1650px] w-[1000px]"
 				width={1650}
 			/>
 
 			{/* Content */}
-			<div className="relative text-black top-[-150px] left-[-550px]">
-				<h1 className="text-[100px] font-bold leading-tight">
+			<div className="relative text-black md:lg:top-[-50px] md:lg:left-[-600px]">
+				<h1 className="md:lg:text-[100px] text-[75px] font-bold leading-tight">
 					Let's connect
 					<br />
 					<span className="inline-block bg-[#D6FF4D] px-2 py-1 text-black">
@@ -21,7 +21,7 @@ const About = () => {
 			</div>
 
 			{/* Button Overlay */}
-			<button className="relative mt-10 text-2xl bg-[#D6FF4D] text-black hover:bg-[#c1e645] px-8 py-6 bottom-[-220px] right-[-690px] w-[250px] rounded-xl cursor-pointer">
+			<button className="relative mt-16 md:lg:mt-10 px-4 py-4 md:lg:text-2xl bg-[#D6FF4D] text-black hover:bg-[#c1e645] md:lg:px-8 md:lg:py-6 md:lg:bottom-[-220px] md:lg:right-[-690px] md:lg:w-[250px] rounded-xl cursor-pointer">
 				Schedules
 			</button>
 			

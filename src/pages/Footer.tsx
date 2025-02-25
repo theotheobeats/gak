@@ -8,7 +8,7 @@ export default function Footer() {
 					<div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6 lg:gap-12">
 						<div className="col-span-4">
 							<div className="space-y-4">
-								<div className="flex space-x-2 ml-8 flex-col">
+								<div className="flex space-x-2 flex-col">
 									<span className="text-xl font-bold">
 										Gereja Anugerah Kristus
 									</span>
@@ -18,7 +18,7 @@ export default function Footer() {
 										I, Kota Palembang, Sumatera Selatan 30125
 									</p>
 								</div>
-								<div className="flex space-x-4 ml-8">
+								<div className="flex space-x-4">
 									<a
 										href="#"
 										className="text-muted-foreground hover:text-primary">
