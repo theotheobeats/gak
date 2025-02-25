@@ -1,8 +1,6 @@
-
-
 const DevotionCard = () => {
 	return (
-		<div className="flex gap-8">
+		<div className="flex flex-col md:lg:flex-row gap-8">
 			<div className="relative bg-[#e2ff00] rounded-3xl p-1.5 min-w-[280px] min-h-[320px] shadow-lg">
 				<div className="border-2 border-black rounded-2xl p-6 h-full">
 					<div className="space-y-2">

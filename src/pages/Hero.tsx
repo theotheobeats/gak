@@ -8,12 +8,11 @@ const Hero = () => {
 	});
 
 	useEffect(() => {
-		// Get next Sunday
 		const getNextSunday = () => {
 			const now = new Date();
 			const nextSunday = new Date();
 			nextSunday.setDate(now.getDate() + ((7 - now.getDay()) % 7));
-			nextSunday.setHours(10, 0, 0, 0); // Set to 10 AM
+			nextSunday.setHours(10, 0, 0, 0);
 			return nextSunday;
 		};
 
@@ -31,33 +30,41 @@ const Hero = () => {
 
 		return () => clearInterval(timer);
 	}, []);
+
 	return (
-		<div className="w-full text-white min-h-screen overflow-hidden">
-			<div className="bg-[#0C4651] pb-16">
-				<div className="hidden lg:flex justify-between px-4 md:px-12 pt-6 md:pt-12 pb-4">
+		<div className="text-white w-full">
+			<div className="bg-[#0C4651] pb-16 md:sm:pt-0 pt-16 w-full">
+				{/* Navigation */}
+				<div className="hidden lg:flex justify-between px-4 md:px-12 pt-6 md:pt-12 pb-4 w-full">
 					<div className="flex justify-center items-center">
-						<img src="/public/img/logo.png" alt="logo" className="m-auto" />
+						<img src="/img/logo.png" alt="logo" className="m-auto" />
 					</div>
 					<div className="flex gap-8 items-center justify-center">
-						<a href="">Community</a>
-						<a href="">Devotions</a>
+						<a href="" className="hover:text-[#E8F967] transition-colors">
+							Community
+						</a>
+						<a href="" className="hover:text-[#E8F967] transition-colors">
+							Devotions
+						</a>
 						<a
 							href=""
-							className="py-2 px-8 text-center w-full bg-[#E8F967] rounded-sm text-black hover:opacity-90 transition-all">
+							className="py-2 px-8 text-center bg-[#E8F967] rounded-sm text-black hover:opacity-90 transition-all">
 							Connect
 						</a>
 					</div>
 				</div>
-				<div className="flex flex-col md:lg:flex md:lg:flex-row md:lg:justify-between md:lg:pl-20 ">
-					<div className="md:lg:w-1/2 flex flex-col px-4 pt-4 self-center">
-						<div className="flex flex-col font-bold md:lg:leading-33 md:lg:gap-8 text-center md:lg:text-left pt-8 md:lg:pt-0">
-							<span className="lg:text-[175px] md:text-[100px] text-[100px] items-center">
+
+				{/* Hero Content */}
+				<div className="flex flex-col lg:flex-row lg:justify-between lg:pl-20 w-full">
+					<div className="lg:w-1/2 flex flex-col px-4 md:px-6 pt-4 self-center">
+						<div className="flex flex-col font-bold gap-2 lg:gap-8 text-center lg:text-left pt-8 lg:pt-0">
+							<span className="text-6xl sm:text-7xl lg:text-[175px] leading-none">
 								Welcome
 							</span>
-							<span className="lg:text-[175px] md:text-[100px] text-[100px] items-center text-[#E8F967]">
+							<span className="text-6xl sm:text-7xl lg:text-[175px] leading-none text-[#E8F967]">
 								Home,
 							</span>
-							<span className="lg:text-[175px] md:text-[100px] text-[100px] items-center">
+							<span className="text-6xl sm:text-7xl lg:text-[175px] leading-none">
 								Church.
 							</span>
 						</div>
@@ -69,36 +76,47 @@ const Hero = () => {
 						</a>
 					</div>
 
-					<div className="md:lg:w-1/2 justify-items-center self-center">
+					<div className="lg:w-1/2 justify-items-center self-center mt-8 lg:mt-0">
 						<img
-							className="mx-auto my-auto leading-none md:lg:w-[550px] w-[250px] hidden md:lg:block"
+							className="mx-auto my-auto leading-none w-[250px] lg:w-[550px] hidden md:block"
 							src="/img/hero.png"
+							alt="Church hero image"
 						/>
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col md:lg:flex-row gap-16 px-28 pt-12 align-bottom text-black">
-				<div className="text-2xl italic md:lg:w-1/2 self-center mx-auto text-center md:lg:text-left">
+
+			{/* Countdown Section */}
+			<div className="flex flex-col lg:flex-row gap-8 lg:gap-16 px-4 md:px-8 lg:px-28 pt-12 text-black w-full">
+				<div className="text-xl lg:text-2xl italic lg:w-1/2 self-center mx-auto text-center lg:text-left">
 					"But seek first the Kingdom of God and his righteousness, and all
 					these things will be added to you".
 				</div>
-				<div className="flex flex-col md:lg:flex-row md:lg:justify-end md:lg:w-1/2 mx-auto md:lg:gap-14">
-					<div className="flex md:lg:flex-col md:lg:gap-0 gap-4 gap-y-1 self-center mx-auto">
-						<span className="leading-none text-2xl">NEXT</span>
-						<span className="leading-none text-2xl">SUNDAY</span>
-						<span className="leading-none text-2xl">SERVICE IN</span>
+
+				<div className="flex flex-col lg:flex-row lg:justify-end lg:w-1/2 mx-auto lg:gap-14">
+					<div className="flex lg:flex-col gap-4 lg:gap-0 self-center mx-auto text-center lg:text-left mb-4 lg:mb-0">
+						<span className="leading-none text-xl lg:text-2xl">NEXT</span>
+						<span className="leading-none text-xl lg:text-2xl">SUNDAY</span>
+						<span className="leading-none text-xl lg:text-2xl">SERVICE IN</span>
 					</div>
-					<div className="flex gap-8 text-center mt-4 md:lg:mt-0">
-						<div className="bg-[#D6FF4D] p-4 w-28">
-							<div className="text-4xl font-bold">{timeLeft.days}</div>
+
+					<div className="flex flex-wrap justify-center gap-4 lg:gap-8">
+						<div className="bg-[#D6FF4D] p-4 w-24 lg:w-28">
+							<div className="text-3xl lg:text-4xl font-bold">
+								{timeLeft.days}
+							</div>
 							<div className="text-sm">DAYS</div>
 						</div>
-						<div className="bg-[#D6FF4D] p-4 w-28">
-							<div className="text-4xl font-bold">{timeLeft.hours}</div>
+						<div className="bg-[#D6FF4D] p-4 w-24 lg:w-28">
+							<div className="text-3xl lg:text-4xl font-bold">
+								{timeLeft.hours}
+							</div>
 							<div className="text-sm">HOURS</div>
 						</div>
-						<div className="bg-[#D6FF4D] p-4 w-28">
-							<div className="text-4xl font-bold">{timeLeft.minutes}</div>
+						<div className="bg-[#D6FF4D] p-4 w-24 lg:w-28">
+							<div className="text-3xl lg:text-4xl font-bold">
+								{timeLeft.minutes}
+							</div>
 							<div className="text-sm">MINUTES</div>
 						</div>
 					</div>

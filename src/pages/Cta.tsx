@@ -9,11 +9,11 @@ const Cta = () => {
 					alt="Circle Stroke"
 				/>
 				{/* Heading */}
-				<h1 className="text-[90px] font-bold relative z-[2]">Get In Touch</h1>
+				<h1 className="text-4xl md:lg:text-[90px] font-bold relative z-[2]">Get In Touch</h1>
 			</div>
 
 			{/* Form Section */}
-			<div className="w-[525px] mt-4">
+			<div className="md:lg:w-[525px] px-4 mt-4">
 				<input
 					type="text"
 					placeholder="Your email"

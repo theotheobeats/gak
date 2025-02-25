@@ -1,6 +1,6 @@
 const About = () => {
 	return (
-		<div className="relative flex flex-col items-center justify-center h-screen leading-none">
+		<div className="relative flex flex-col items-center justify-center my-24 leading-none w-full">
 			{/* Background Image */}
 			<img
 				src="/img/about.png"
@@ -11,7 +11,7 @@ const About = () => {
 
 			{/* Content */}
 			<div className="relative text-black md:lg:top-[-50px] md:lg:left-[-600px]">
-				<h1 className="md:lg:text-[100px] text-[75px] font-bold leading-tight">
+				<h1 className="md:lg:text-[100px] text-[25px] font-bold leading-tight">
 					Let's connect
 					<br />
 					<span className="inline-block bg-[#D6FF4D] px-2 py-1 text-black">

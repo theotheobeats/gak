@@ -8,7 +8,7 @@ import Footer from "./pages/Footer";
 
 function App() {
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col w-full">
 			<Hero />
 			<About />
 			<Schedule />
