@@ -4,6 +4,7 @@ import About from "./pages/About";
 import Schedule from "./pages/Schedule";
 import Devotion from "./pages/Devotion";
 import Cta from "./pages/Cta";
+import Footer from "./pages/Footer";
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 			<Schedule />
 			<Devotion />
 			<Cta />
+			<Footer />
 		</div>
 	);
 }
