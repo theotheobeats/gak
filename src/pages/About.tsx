@@ -24,6 +24,7 @@ const About = () => {
 			<button className="relative mt-10 text-2xl bg-[#D6FF4D] text-black hover:bg-[#c1e645] px-8 py-6 bottom-[-220px] right-[-690px] w-[250px] rounded-xl cursor-pointer">
 				Schedules
 			</button>
+			
 		</div>
 	);
 };

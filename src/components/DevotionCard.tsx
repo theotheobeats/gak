@@ -1,6 +1,8 @@
-export default function FaithCards() {
+
+
+const DevotionCard = () => {
 	return (
-		<div className="flex flex-col md:flex-row gap-6 p-6">
+		<div className="flex gap-8">
 			<div className="relative bg-[#e2ff00] rounded-3xl p-1.5 min-w-[280px] min-h-[320px] shadow-lg">
 				<div className="border-2 border-black rounded-2xl p-6 h-full">
 					<div className="space-y-2">
@@ -24,4 +26,6 @@ export default function FaithCards() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default DevotionCard;
