@@ -3,7 +3,7 @@ const About = () => {
 		<div className="relative flex flex-col items-center justify-center h-screen leading-none">
 			{/* Background Image */}
 			<img
-				src="/public/img/about.png"
+				src="/img/about.png"
 				alt="About"
 				className="absolute mx-auto object-cover leading-none grayscale md:lg:w-[1650px] w-[1000px]"
 				width={1650}

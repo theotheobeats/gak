@@ -72,7 +72,7 @@ const Hero = () => {
 					<div className="md:lg:w-1/2 justify-items-center self-center">
 						<img
 							className="mx-auto my-auto leading-none md:lg:w-[550px] w-[250px] hidden md:lg:block"
-							src="/public/img/hero.png"
+							src="/img/hero.png"
 						/>
 					</div>
 				</div>
