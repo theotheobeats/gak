@@ -56,15 +56,15 @@ const Hero = () => {
 
 				{/* Hero Content */}
 				<div className="flex flex-col lg:flex-row lg:justify-between lg:pl-20 w-full">
-					<div className="lg:w-1/2 flex flex-col px-4 md:px-6 pt-4 self-center">
+					<div className="md:lg:w-1/2 flex flex-col px-4 md:px-6 pt-4 self-center">
 						<div className="flex flex-col font-bold gap-2 lg:gap-8 text-center lg:text-left pt-8 lg:pt-0">
-							<span className="text-6xl sm:text-7xl lg:text-[175px] leading-none">
+							<span className="text-6xl sm:text-7xl lg:text-[145px] leading-none">
 								Welcome
 							</span>
-							<span className="text-6xl sm:text-7xl lg:text-[175px] leading-none text-[#E8F967]">
+							<span className="text-6xl sm:text-7xl lg:text-[145px] leading-none text-[#E8F967]">
 								Home,
 							</span>
-							<span className="text-6xl sm:text-7xl lg:text-[175px] leading-none">
+							<span className="text-6xl sm:text-7xl lg:text-[145px] leading-none">
 								Church.
 							</span>
 						</div>
@@ -78,7 +78,7 @@ const Hero = () => {
 
 					<div className="lg:w-1/2 justify-items-center self-center mt-8 lg:mt-0">
 						<img
-							className="mx-auto my-auto leading-none w-[250px] lg:w-[550px] hidden md:block"
+							className="mx-auto my-auto leading-none md:lg:w-[600px] hidden md:block"
 							src="/img/hero.png"
 							alt="Church hero image"
 						/>

@@ -1,6 +1,6 @@
 const About = () => {
 	return (
-		<div className="relative flex flex-col items-center justify-center my-24 leading-none w-full">
+		<div className="relative flex flex-col items-center justify-center my-24 leading-none w-full md:lg:my-48">
 			{/* Background Image */}
 			<img
 				src="/img/about.png"
