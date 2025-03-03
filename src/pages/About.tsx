@@ -10,7 +10,7 @@ const About = () => {
 			/>
 
 			{/* Content */}
-			<div className="relative text-black md:lg:top-[-50px] md:lg:left-[-600px]">
+			<div className="relative text-black md:lg:top-[-50px] md:lg:left-[-500px]">
 				<h1 className="md:lg:text-[100px] text-[25px] font-bold leading-tight">
 					Let's connect
 					<br />
@@ -21,10 +21,9 @@ const About = () => {
 			</div>
 
 			{/* Button Overlay */}
-			<button className="relative mt-16 md:lg:mt-10 px-4 py-4 md:lg:text-2xl bg-[#D6FF4D] text-black hover:bg-[#c1e645] md:lg:px-8 md:lg:py-6 md:lg:bottom-[-220px] md:lg:right-[-690px] md:lg:w-[250px] rounded-xl cursor-pointer">
+			<button className="relative mt-16 md:lg:mt-10 px-4 py-4 md:lg:text-2xl bg-[#0C4651] text-[#D6FF4D] font-bold transition-all duration-300 hover:bg-[#c1e645] md:lg:px-8 md:lg:py-6 md:lg:bottom-[-220px] md:lg:right-[-690px] md:lg:w-[250px] rounded-4xl cursor-pointer">
 				Schedules
 			</button>
-			
 		</div>
 	);
 };

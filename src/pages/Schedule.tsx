@@ -5,8 +5,14 @@ const Schedule = () => {
 				Join us for an intimate connection with{" "}
 				<span className="text-[#0C4651]">Christ</span>
 			</div>
-			<div className="relative flex justify-center my-8 md:lg:my-24">
-				<img src="/img/schedule_card.png" className="md:lg:w-[600px] w-[250px]" />
+			<div className="flex flex-wrap justify-center gap-4 px-4 md:px-8 py-16">
+				<img src="/img/schedule/card_1.png" className="w-[400px] rounded-lg" />
+				<img src="/img/schedule/card_2.png" className="w-[400px] rounded-lg" />
+				<img src="/img/schedule/card_3.png" className="w-[400px] rounded-lg" />
+				<img src="/img/schedule/card_4.png" className="w-[400px] rounded-lg" />
+				<img src="/img/schedule/card_5.png" className="w-[400px] rounded-lg" />
+				<img src="/img/schedule/card_6.png" className="w-[400px] rounded-lg" />
+				<img src="/img/schedule/card_7.png" className="w-[400px] rounded-lg" />
 			</div>
 
 			{/* Background Decorative Images */}

@@ -1,3 +1,15 @@
 body {
+	font-family: "Instrument Sans", sans-serif;
+}
+
+.font-serif {
 	font-family: "Inria Serif", serif;
 }
+
+.font-sans {
+	font-family: "Instrument Sans", sans-serif;
+}
+
+.font-mulish {
+	font-family: "Mulish", sans-serif;
+}	
