@@ -7,6 +7,13 @@ const Hero = () => {
 		minutes: 0,
 	});
 
+	const scrollToSection = (id: string) => {
+		const element = document.getElementById(id);
+		if (element) {
+			element.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	useEffect(() => {
 		const getNextSunday = () => {
 			const now = new Date();
@@ -41,17 +48,26 @@ const Hero = () => {
 						<div className="text-white">Gereja Anugerah Kristus</div>
 					</div>
 					<div className="flex gap-8 items-center justify-center">
-						<a href="" className="hover:text-[#E8F967] transition-colors">
-							Community
-						</a>
-						<a href="" className="hover:text-[#E8F967] transition-colors">
+						<button
+							onClick={() => scrollToSection("schedule")}
+							className="hover:text-[#E8F967] transition-colors cursor-pointer">
+							Schedule
+						</button>
+						<button
+							onClick={() => scrollToSection("devotion")}
+							className="hover:text-[#E8F967] transition-colors cursor-pointer">
 							Devotions
-						</a>
-						<a
-							href=""
-							className="py-2 px-8 text-center bg-[#E8F967] rounded-sm text-black hover:opacity-90 transition-all">
+						</button>
+						<button
+							onClick={() => scrollToSection("documentation")}
+							className="hover:text-[#E8F967] transition-colors cursor-pointer">
+							Documentation
+						</button>
+						<button
+							onClick={() => scrollToSection("cta")}
+							className="py-2 px-8 text-center bg-[#E8F967] rounded-sm text-black hover:opacity-90 transition-all cursor-pointer">
 							Connect
-						</a>
+						</button>
 					</div>
 				</div>
 
@@ -63,7 +79,7 @@ const Hero = () => {
 								Welcome
 							</span>
 							<span className="text-6xl sm:text-7xl lg:text-[160px] leading-none mx-auto text-[#E8F967]">
-								Home.
+								Home,
 							</span>
 							<span className="text-6xl sm:text-7xl lg:text-[160px] leading-none mx-auto">
 								Church!
@@ -109,22 +125,22 @@ const Hero = () => {
 
 					<div className="flex flex-wrap justify-center gap-4 lg:gap-8">
 						<div className="bg-[#D6FF4D] p-4 w-24 lg:w-28">
-							<div className="text-3xl lg:text-4xl font-bold">
+							<div className="text-3xl lg:text-4xl font-bold text-center">
 								{timeLeft.days}
 							</div>
-							<div className="text-sm">DAYS</div>
+							<div className="text-sm self-center text-center">DAYS</div>
 						</div>
 						<div className="bg-[#D6FF4D] p-4 w-24 lg:w-28">
-							<div className="text-3xl lg:text-4xl font-bold">
+							<div className="text-3xl lg:text-4xl font-bold text-center">
 								{timeLeft.hours}
 							</div>
-							<div className="text-sm">HOURS</div>
+							<div className="text-sm self-center text-center">HOURS</div>
 						</div>
 						<div className="bg-[#D6FF4D] p-4 w-24 lg:w-28">
-							<div className="text-3xl lg:text-4xl font-bold">
+							<div className="text-3xl lg:text-4xl font-bold text-center">
 								{timeLeft.minutes}
 							</div>
-							<div className="text-sm">MINUTES</div>
+							<div className="text-sm self-center text-center">MINUTES</div>
 						</div>
 					</div>
 				</div>
