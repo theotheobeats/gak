@@ -1,22 +1,9 @@
-import Hero from "./pages/Hero";
 import "./App.css";
-import About from "./pages/About";
-import Schedule from "./pages/Schedule";
-import Devotion from "./pages/Devotion";
-import Cta from "./pages/Cta";
-import Footer from "./pages/Footer";
 
-function App() {
+export function App() {
 	return (
-		<div className="flex flex-col w-full">
-			<Hero />
-			<About />
-			<Schedule />
-			<Devotion />
-			<Cta />
-			<Footer />
+		<div className="min-h-screen">
+			
 		</div>
 	);
 }
-
-export default App;
