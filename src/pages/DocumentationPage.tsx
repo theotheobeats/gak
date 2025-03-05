@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "@tanstack/react-router";
-import { ArrowLeft, Download } from "lucide-react";
+import {
+	ArrowLeft,
+	ArrowLeftCircle,
+	ArrowRightCircle,
+	Download,
+	Expand,
+	X,
+} from "lucide-react";
 
 interface User {
 	id: string;
@@ -28,6 +35,9 @@ const DocumentationPage = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
+	const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+		null
+	);
 	const imagesPerPage = 10;
 
 	useEffect(() => {
@@ -48,6 +58,27 @@ const DocumentationPage = () => {
 
 		fetchAlbum();
 	}, [id]);
+
+	const handleKeyPress = (e: KeyboardEvent) => {
+		if (selectedImageIndex === null || !album) return;
+
+		if (e.key === "ArrowLeft") {
+			setSelectedImageIndex((prev) =>
+				prev !== null ? Math.max(0, prev - 1) : null
+			);
+		} else if (e.key === "ArrowRight") {
+			setSelectedImageIndex((prev) =>
+				prev !== null ? Math.min(album.images.length - 1, prev + 1) : null
+			);
+		} else if (e.key === "Escape") {
+			setSelectedImageIndex(null);
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener("keydown", handleKeyPress);
+		return () => window.removeEventListener("keydown", handleKeyPress);
+	}, [selectedImageIndex, album]);
 
 	if (isLoading) {
 		return (
@@ -138,25 +169,75 @@ const DocumentationPage = () => {
 			<div className="px-4 sm:px-8 md:px-16 lg:px-24">
 				<div className="max-w-7xl mx-auto">
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-						{currentImages.map((image) => (
+						{currentImages.map((image, index) => (
 							<div key={image.id} className="relative group">
 								<img
 									src={image.url}
 									alt=""
 									className="w-full aspect-square object-cover rounded-lg"
 								/>
-								<button
-									onClick={() =>
-										downloadImage(image.url, `${album.title}-${image.id}.jpg`)
-									}
-									className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity">
-									<Download className="text-white" size={24} />
-								</button>
+								<div className="absolute inset-0 flex items-center justify-center gap-4 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity">
+									<button
+										onClick={() =>
+											setSelectedImageIndex(
+												(currentPage - 1) * imagesPerPage + index
+											)
+										}
+										className="p-2 bg-white rounded-full hover:bg-[#E8F967] transition-colors cursor-pointer">
+										<Expand className="text-black" size={24} />
+									</button>
+									<button
+										onClick={() =>
+											downloadImage(image.url, `${album.title}-${image.id}.jpg`)
+										}
+										className="p-2 bg-white rounded-full hover:bg-[#E8F967] transition-colors cursor-pointer">
+										<Download className="text-black" size={24} />
+									</button>
+								</div>
 							</div>
 						))}
 					</div>
 				</div>
 			</div>
+
+			{/* Image Modal */}
+			{selectedImageIndex !== null && album && (
+				<div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+					<button
+						onClick={() => setSelectedImageIndex(null)}
+						className="absolute top-4 right-4 text-white hover:text-[#E8F967] transition-colors">
+						<X size={32} />
+					</button>
+
+					<button
+						onClick={() =>
+							setSelectedImageIndex(Math.max(0, selectedImageIndex - 1))
+						}
+						className="absolute left-4 text-white hover:text-[#E8F967] transition-colors disabled:opacity-50"
+						disabled={selectedImageIndex === 0}>
+						<ArrowLeftCircle size={32} />
+					</button>
+
+					<div className="max-w-[90vw] max-h-[90vh]">
+						<img
+							src={album.images[selectedImageIndex].url}
+							alt=""
+							className="max-w-full max-h-[90vh] object-contain"
+						/>
+					</div>
+
+					<button
+						onClick={() =>
+							setSelectedImageIndex(
+								Math.min(album.images.length - 1, selectedImageIndex + 1)
+							)
+						}
+						className="absolute right-4 text-white hover:text-[#E8F967] transition-colors disabled:opacity-50"
+						disabled={selectedImageIndex === album.images.length - 1}>
+						<ArrowRightCircle size={32} />
+					</button>
+				</div>
+			)}
 
 			{/* Pagination */}
 			{totalPages > 1 && (
