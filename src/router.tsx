@@ -6,27 +6,36 @@ import {
 import Home from "./pages/Home.js";
 import DocumentationPage from "./pages/DocumentationPage.js";
 import DevotionPage from "./pages/DevotionPage.js";
+import { App } from "./App.js";
 
 export const rootRoute = createRootRoute({
+	component: App,
+});
+
+// Devotion route with dynamic parameter
+export const homeRoute = createRoute({
+	getParentRoute: () => rootRoute,
+	path: "/",
 	component: Home,
 });
 
-// Documentation route with dynamic parameter
+// Devotion route with dynamic parameter
 export const documentationRoute = createRoute({
 	getParentRoute: () => rootRoute,
-	path: "documentation/$dynamicParam",
-	component: () => DocumentationPage,
+	path: "documentation/$id",
+	component: DocumentationPage,
 });
 
 // Devotion route with dynamic parameter
 export const devotionRoute = createRoute({
 	getParentRoute: () => rootRoute,
-	path: "devotion/$dynamicParam",
-	component: () => DevotionPage,
+	path: "devotion/$id",
+	component: DevotionPage,
 });
 
 // Create and export the router configuration
 export const routeTree = rootRoute.addChildren([
+	homeRoute,
 	documentationRoute,
 	devotionRoute,
 ]);

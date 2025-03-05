@@ -1,4 +1,11 @@
 const About = () => {
+	const scrollToSection = (id: string) => {
+		const element = document.getElementById(id);
+		if (element) {
+			element.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	return (
 		<div className="relative flex flex-col items-center justify-center my-24 leading-none w-full md:lg:my-52">
 			{/* Background Image */}
@@ -21,7 +28,9 @@ const About = () => {
 			</div>
 
 			{/* Button Overlay */}
-			<button className="relative mt-16 md:lg:mt-10 px-4 py-4 md:lg:text-2xl bg-[#0C4651] text-[#D6FF4D] font-bold transition-all duration-300 hover:bg-[#c1e645] md:lg:px-8 md:lg:py-6 md:lg:bottom-[-220px] md:lg:right-[-690px] md:lg:w-[250px] rounded-4xl cursor-pointer">
+			<button
+				onClick={() => scrollToSection("schedule")}
+				className="relative mt-16 md:lg:mt-10 px-4 py-4 md:lg:text-2xl bg-[#0C4651] text-[#D6FF4D] font-bold transition-all duration-300 hover:bg-[#c1e645] md:lg:px-8 md:lg:py-6 md:lg:bottom-[-220px] md:lg:right-[-690px] md:lg:w-[250px] rounded-4xl cursor-pointer">
 				Schedules
 			</button>
 		</div>
