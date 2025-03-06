@@ -43,7 +43,7 @@ const DevotionDetail = () => {
 		const fetchReflection = async () => {
 			try {
 				const response = await fetch(
-					`http://localhost:3001/api/reflections/get/${id}`
+					`${import.meta.env.VITE_BACKEND_URL}/api/reflections/get/${id}`
 				);
 				if (!response.ok) {
 					throw new Error("Failed to fetch reflection");

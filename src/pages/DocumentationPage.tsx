@@ -43,7 +43,9 @@ const DocumentationPage = () => {
 	useEffect(() => {
 		const fetchAlbum = async () => {
 			try {
-				const response = await fetch(`http://localhost:3001/api/albums/${id}`);
+				const response = await fetch(
+					`${import.meta.env.VITE_BACKEND_URL}/api/albums/${id}`
+				);
 				if (!response.ok) {
 					throw new Error("Failed to fetch album");
 				}

@@ -29,7 +29,9 @@ const Gallery = () => {
 	useEffect(() => {
 		const fetchAlbums = async () => {
 			try {
-				const response = await fetch("http://localhost:3001/api/albums");
+				const response = await fetch(
+					`${import.meta.env.VITE_BACKEND_URL}/api/albums`
+				);
 				if (!response.ok) {
 					throw new Error("Failed to fetch albums");
 				}
