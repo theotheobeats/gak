@@ -1,148 +1,51 @@
 import { Dribbble, Github, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
-	return (
-		<footer className="w-full py-12 md:py-16 lg:py-20 bg-[#0C4651] text-white">
-			<div className="px-4 md:px-6">
-				<div className="flex flex-col gap-8 lg:gap-12">
-					<div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-6 lg:gap-12">
-						<div className="col-span-4">
-							<div className="space-y-4">
-								<div className="flex space-x-2 flex-col">
-									<span className="text-xl font-bold">
-										Gereja Anugerah Kristus
-									</span>
-
-									<p className="text-slate-100 max-w-[500px] font-light">
-										Address: Jl. Letkol Iskandar No.909, 17 Ilir, Kec. Ilir Tim.
-										I, Kota Palembang, Sumatera Selatan 30125
-									</p>
-								</div>
-								<div className="flex space-x-4">
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										<Twitter className="h-5 w-5" />
-										<span className="sr-only">Twitter</span>
-									</a>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										<Linkedin className="h-5 w-5" />
-										<span className="sr-only">LinkedIn</span>
-									</a>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										<Github className="h-5 w-5" />
-										<span className="sr-only">GitHub</span>
-									</a>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										<Dribbble className="h-5 w-5" />
-										<span className="sr-only">Dribbble</span>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div className="col-span-1">
-							<h3 className="text-base font-semibold">Company</h3>
-							<ul className="mt-4 space-y-3 text-sm">
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										About us
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Careers
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Press
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										News
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Media kit
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Contact
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div className="col-span-1">
-							<h3 className="text-base font-semibold">Resources</h3>
-							<ul className="mt-4 space-y-3 text-sm">
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Blog
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Newsletter
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Events
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Help centre
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Tutorials
-									</a>
-								</li>
-								<li>
-									<a
-										href="#"
-										className="text-muted-foreground hover:text-primary">
-										Support
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-	);
+  return (
+    <footer className="w-full bg-[color:var(--primary)] text-white mt-10">
+      <div className="page-container section">
+        <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div>
+            <div className="flex items-center gap-2">
+              <img src="/img/logo.png" alt="logo" className="h-8 w-8 rounded" />
+              <span className="font-semibold">Gereja Anugerah Kristus</span>
+            </div>
+            <p className="mt-3 text-white/80 max-w-prose">
+              Jl. Letkol Iskandar No.909, 17 Ilir, Kec. Ilir Tim. I, Kota Palembang, Sumatera Selatan 30125
+            </p>
+            <div className="flex gap-3 mt-4">
+              <a href="#" aria-label="Twitter" className="glass p-2 rounded-lg"><Twitter className="h-5 w-5" /></a>
+              <a href="#" aria-label="LinkedIn" className="glass p-2 rounded-lg"><Linkedin className="h-5 w-5" /></a>
+              <a href="#" aria-label="GitHub" className="glass p-2 rounded-lg"><Github className="h-5 w-5" /></a>
+              <a href="#" aria-label="Dribbble" className="glass p-2 rounded-lg"><Dribbble className="h-5 w-5" /></a>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-semibold">Company</h4>
+            <ul className="mt-3 space-y-2 text-white/85">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Media kit</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold">Resources</h4>
+            <ul className="mt-3 space-y-2 text-white/85">
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Newsletter</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Help centre</a></li>
+              <li><a href="#">Tutorials</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="divider mt-10 opacity-30" />
+        <div className="pt-6 text-sm text-white/75">© {new Date().getFullYear()} GAK. All rights reserved.</div>
+      </div>
+    </footer>
+  );
 }

@@ -47,47 +47,22 @@ const Gallery = () => {
 		fetchAlbums();
 	}, []);
 
-	return (
-		<div className="flex flex-col mt-8 md:mt-12 lg:mt-16 px-8 sm:px-8 md:px-16 lg:px-24 gap-8">
-			<div className="flex flex-col md:flex-row w-full gap-8 md:gap-12 lg:gap-16">
-				<div className="flex flex-col w-full">
-					<span className="text-3xl sm:text-4xl md:text-5xl lg:text-[75px] font-bold">
-						Gallery
-					</span>
-					<span className="text-3xl sm:text-4xl md:text-5xl lg:text-[75px] font-bold bg-[#E8F967]">
-						Documentation
-					</span>
-					<button
-						onClick={() =>
-							document
-								.getElementById("albums-section")
-								?.scrollIntoView({ behavior: "smooth" })
-						}
-						className="w-full md:w-2/3 lg:w-full mt-4 px-4 py-2 rounded-lg bg-white border border-black text-black transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#0C4651] focus:ring-offset-2 cursor-pointer hover:opacity-80">
-						View All Albums
-					</button>
-				</div>
-				<div className="w-full md:w-auto justify-center md:justify-end items-center md:items-end hidden md:lg:block">
-					<img
-						src="/img/gallery.png"
-						alt="gallery"
-						className="max-w-full h-auto"
-					/>
-				</div>
-			</div>
-			<div className="text-2xl sm:text-3xl md:text-4xl font-bold mt-8 md:mt-12 lg:mt-16">
-				Highlighted
-			</div>
-			<img
-				src="/img/gallery_2.png"
-				alt="gallery"
-				className="max-w-full h-auto"
-			/>
-			<img
-				src="/img/gallery_3.png"
-				alt="gallery"
-				className="max-w-full h-auto"
-			/>
+    return (
+        <section className="section">
+            <div className="page-container flex flex-col gap-8">
+                <div className="grid md:grid-cols-2 gap-8 items-end">
+                    <div>
+                        <div className="chip inline-block">Documentation</div>
+                        <h3 className="font-serif text-3xl md:text-5xl mt-2">Gallery</h3>
+                
+                    </div>
+                  
+                </div>
+                <div className="text-xl md:text-2xl font-semibold">Highlighted</div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <img src="/img/gallery_2.png" alt="gallery highlight 1" className="w-full h-[240px] md:h-[260px] object-cover card md:col-span-2" />
+                    <img src="/img/gallery_3.png" alt="gallery highlight 2" className="w-full h-[240px] md:h-[260px] object-cover card" />
+                </div>
 			{/* {isLoading ? (
 				<div className="text-center py-8">Loading albums...</div>
 			) : error ? (
@@ -132,56 +107,47 @@ const Gallery = () => {
 			)} */}
 
 			{/* Documentation Timeline */}
-			{isLoading ? (
+            {isLoading ? (
 				<div className="text-center py-8">Loading albums...</div>
 			) : error ? (
 				<div className="text-center py-8 text-red-500">{error}</div>
 			) : (
-				<div className="flex flex-col gap-8" id="albums-section">
-					<h2 className="text-4xl font-bold">All Albums</h2>
-
-					<div className="flex flex-col gap-6">
-						<div className="flex flex-col gap-4">
-							{albums.map((album) => (
-								<div className="flex items-center gap-4">
-									<div className="w-24 h-24 rounded-lg overflow-hidden">
-										{album.images[0] && (
-											<img
-												src={album.images[0].url}
-												alt={album.name}
-												className="w-full h-full object-cover"
-											/>
-										)}
-									</div>
-									<div className="flex-1 flex justify-between items-center">
-										<div className="flex flex-col">
-											<h4 className="text-xl font-bold">{album.name}</h4>
-											<p className="text-gray-600">
-												{new Date(album.date).toLocaleDateString()}
-											</p>
-										</div>
-										<Link
-											to="/documentation/$id"
-											params={{ id: album.id }}
-											className="px-6 py-2 border border-black rounded-full hover:bg-[#E8F967] transition-colors">
-											Lihat
-										</Link>
-									</div>
-								</div>
-							))}
-						</div>
-					</div>
-
-					{/* See More Button */}
-					<div className="flex justify-center">
-						<button className="px-6 py-2 border border-black rounded-full hover:bg-[#E8F967] transition-colors">
-							See More
-						</button>
-					</div>
-				</div>
+                <div className="flex flex-col gap-6" id="albums-section">
+                    <h2 className="font-serif text-2xl md:text-4xl">All Albums</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {albums.map((album) => (
+                            <Link
+                                key={album.id}
+                                to="/documentation/$id"
+                                params={{ id: album.id }}
+                                className="card overflow-hidden group">
+                                <div className="aspect-[4/3] overflow-hidden">
+                                    {album.images[0] && (
+                                        <img
+                                            src={album.images[0].url}
+                                            alt={album.name}
+                                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                        />
+                                    )}
+                                </div>
+                                <div className="p-4 flex items-start justify-between gap-3">
+                                    <div>
+                                        <h4 className="text-base md:text-lg font-semibold">{album.name}</h4>
+                                        <p className="text-sm text-[color:var(--muted-ink)]">{new Date(album.date).toLocaleDateString()}</p>
+                                    </div>
+                                    <span className="btn btn-outline pill whitespace-nowrap">View</span>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                    <div className="flex justify-center pt-2">
+                        <button className="btn btn-primary pill">See More</button>
+                    </div>
+                </div>
 			)}
-		</div>
-	);
+            </div>
+        </section>
+    );
 };
 
 export default Gallery;

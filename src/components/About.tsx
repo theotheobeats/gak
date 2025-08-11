@@ -1,40 +1,37 @@
 const About = () => {
-	const scrollToSection = (id: string) => {
-		const element = document.getElementById(id);
-		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
-		}
-	};
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
 
-	return (
-		<div className="relative flex flex-col items-center justify-center my-24 leading-none w-full md:lg:my-52">
-			{/* Background Image */}
-			<img
-				src="/img/about.png"
-				alt="About"
-				className="absolute mx-auto object-cover leading-none grayscale md:lg:w-[1650px] w-[1000px]"
-				width={1650}
-			/>
-
-			{/* Content */}
-			<div className="relative text-black md:lg:top-[-50px] md:lg:left-[-500px]">
-				<h1 className="md:lg:text-[100px] text-[25px] font-bold leading-tight">
-					Let's connect
-					<br />
-					<span className="inline-block bg-[#D6FF4D] px-2 py-1 text-black">
-						with Jesus
-					</span>
-				</h1>
-			</div>
-
-			{/* Button Overlay */}
-			<button
-				onClick={() => scrollToSection("schedule")}
-				className="relative mt-16 md:lg:mt-10 px-4 py-4 md:lg:text-2xl bg-[#0C4651] text-[#D6FF4D] font-bold transition-all duration-300 hover:bg-[#c1e645] md:lg:px-8 md:lg:py-6 md:lg:bottom-[-220px] md:lg:right-[-690px] md:lg:w-[250px] rounded-4xl cursor-pointer">
-				Schedules
-			</button>
-		</div>
-	);
+  return (
+    <section className="section">
+      <div className="page-container">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="relative">
+            <img src="/img/about.png" alt="About" className="w-full rounded-2xl card object-fit" />
+            <div className="absolute -bottom-6 -right-6 card p-4 hidden md:block">
+              <div className="text-sm text-[color:var(--muted-ink)]">72 years</div>
+              <div className="font-semibold">Following Christ</div>
+            </div>
+          </div>
+          <div>
+            <div className="chip mb-3 inline-block">About Us</div>
+            <h2 className="font-serif text-3xl md:text-5xl leading-tight mb-4">
+              More than 70 years of Christ Centered Worship
+            </h2>
+            <p className="text-[color:var(--muted-ink)] max-w-prose">
+              Christ Centered Worship, Prayer, and Fellowship. No matter your background, you are welcome here.
+            </p>
+            <div className="mt-6 flex gap-3">
+              <button onClick={() => scrollToSection("schedule")} className="btn btn-primary pill">See Schedules</button>
+              <button onClick={() => scrollToSection("devotion")} className="btn btn-outline pill">Read Devotions</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default About;

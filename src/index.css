@@ -1,1 +1,43 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+/* Theme tokens inspired by reference */
+:root {
+  --bg: #f3f5f2; /* mist */
+  --surface: #ffffff;
+  --ink: #0f1f19;
+  --muted-ink: #475b53;
+  --primary: #2e6b5b; /* deep sage */
+  --primary-ink: #0b3a2f;
+  --accent: #dff4b2; /* soft lime */
+  --ring: rgba(46, 107, 91, 0.28);
+  --shadow: 0 10px 30px rgba(15, 31, 25, 0.08);
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout helpers */
+.page-container { max-width: 1200px; margin-inline: auto; padding-inline: 1rem; }
+.section { padding-block: clamp(2.5rem, 6vw, 5rem); }
+
+.surface { background: var(--surface); }
+.card { background: var(--surface); border-radius: 18px; box-shadow: var(--shadow); }
+.pill { border-radius: 999px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; font-weight: 600; line-height: 1; padding: .9rem 1.15rem; border-radius: 999px; transition: all 200ms ease; }
+.btn-primary { background: var(--accent); color: var(--primary-ink); }
+.btn-primary:hover { opacity: .92; }
+.btn-outline { background: transparent; border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); color: var(--ink); }
+.btn-outline:hover { background: color-mix(in srgb, var(--accent) 55%, transparent); }
+
+.chip { background: color-mix(in srgb, var(--primary) 8%, white); color: var(--primary-ink); border: 1px solid color-mix(in srgb, var(--primary) 18%, transparent); padding: .4rem .8rem; border-radius: 999px; font-size: .85rem; }
+.subtle-border { border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent); }
+.divider { height: 1px; background: color-mix(in srgb, var(--ink) 10%, transparent); }
+.glass { backdrop-filter: saturate(160%) blur(8px); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.focus-ring { outline: none; box-shadow: 0 0 0 4px var(--ring); }

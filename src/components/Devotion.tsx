@@ -40,49 +40,65 @@ const Devotion = () => {
 		fetchReflections();
 	}, []);
 
-	return (
-		<div className="flex flex-col mt-24">
-			<div className="text-[30px] md:lg:text-[50px] max-w-full font-bold text-black bg-[#D6FF4D] w-fit mx-auto md:lg:mx-0 md:lg:pl-24">
-				Devotion & Reflection
-			</div>
-			<div className="px-4">
-				<div className="flex flex-col md:lg:flex-row gap-8 px-4 md:lg:px-28 py-12">
-					<div className="flex flex-col gap-4 w-full md:lg:w-full self-center mt-4">
-						{isLoading ? (
-							<div className="text-center py-8">Loading reflections...</div>
-						) : error ? (
-							<div className="text-center py-8 text-red-500">{error}</div>
-						) : reflections.length === 0 ? (
-							<div className="text-center py-8">No reflections available</div>
-						) : (
-							reflections.map((reflection) => (
-								<div key={reflection.id}>
-									<div className="flex justify-between">
-										<div>
-											<p className="text-xl md:lg:text-2xl font-bold">
-												{reflection.title}
-											</p>
-											<span className="text-slate-500">
-												{reflection.author.name}
-											</span>
-										</div>
-										<button
-											className="bg-white text-black px-4 py-2 rounded-4xl border border-black cursor-pointer hover:bg-[#D6FF4D] transition-all duration-300"
-											onClick={() =>
-												(window.location.href = `/devotion/${reflection.id}`)
-											}>
-											Renungkan
-										</button>
-									</div>
-									<hr className="mt-4" />
-								</div>
-							))
-						)}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  return (
+    <section className="section">
+      <div className="page-container">
+        <div className="mb-6 md:mb-8 max-w-3xl mx-auto">
+          <div className="chip inline-block">Journal Prompts</div>
+          <h3 className="font-serif text-3xl md:text-5xl mt-2">Words To Ground Your Mind</h3>
+        </div>
+
+        <div className="card max-w-3xl mx-auto p-4 md:p-5 mb-6">
+          <div className="flex flex-col md:flex-row items-stretch gap-3">
+            <input
+              type="text"
+              placeholder="Have a different question"
+              className="flex-1 subtle-border rounded-lg p-3 bg-white"
+            />
+            <button className="btn btn-primary pill w-full md:w-auto">Ask Something</button>
+          </div>
+        </div>
+
+        <div className="max-w-3xl mx-auto grid gap-3">
+          {isLoading ? (
+            <div className="text-center py-8">Loading reflections...</div>
+          ) : error ? (
+            <div className="text-center py-8 text-red-500">{error}</div>
+          ) : reflections.length === 0 ? (
+            <div className="text-center py-8">No reflections available</div>
+          ) : (
+            reflections.map((reflection) => {
+              const isOpen = expandedId === reflection.id;
+              return (
+                <div key={reflection.id} className="card">
+                  <button
+                    className="w-full flex items-center justify-between p-4 text-left"
+                    onClick={() => setExpandedId(isOpen ? null : reflection.id)}
+                  >
+                    <span className="text-base md:text-lg font-semibold">{reflection.title}</span>
+                    <span className={`pill px-3 py-1 subtle-border text-sm ${isOpen ? "bg-[color:var(--accent)]" : "bg-white"}`}>{isOpen ? "−" : "+"}</span>
+                  </button>
+                  {isOpen && (
+                    <div className="px-4 pb-4 -mt-2">
+                      <div className="text-sm text-[color:var(--muted-ink)] mb-3">{reflection.author.name}</div>
+                      <button
+                        className="btn btn-outline pill"
+                        onClick={() => (window.location.href = `/devotion/${reflection.id}`)}
+                      >
+                        Read
+                      </button>
+                    </div>
+                  )}
+                </div>
+              );
+            })
+          )}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Devotion;
